@@ -26,3 +26,26 @@ export interface LoginValues {
   password: string;
   stayLoggedIn: boolean;
 }
+export type Book = {
+  id: string,
+  title: string,
+  description: string,
+  image: string,
+  createdAt: string,
+  userId: string,
+  saved?: boolean
+}
+export type ActionTypes = 
+{ type: 'setData', data: Book[] } |
+{ type: 'addBook', newBook: Book } |
+{ type: 'deleteBook', id: Book['id']} |
+{ type: 'saveBook', id: Book['id']}
+
+export type BooksContextTypes = {
+  books: Book[],
+  dispatch: React.ActionDispatch<[action: ActionTypes]>,
+  addNewBook: (newBook: Book) => void,
+  removeOneBook: (id: Book["id"]) => void,
+  saveOneBook: (id: Book["id"]) => void,
+  findBook: (id: Book["id"]) => Book | string
+}
