@@ -128,10 +128,12 @@ const Login = () => {
     );
 
     if (foundUser) {
+      setLoggedInUser(foundUser);
+
       if (values.stayLoggedIn) {
         localStorage.setItem('loggedInUser', JSON.stringify(foundUser));
       }
-      setLoggedInUser(foundUser);
+
       navigate('/');
     } else {
       setError('Incorrect email or password.');
