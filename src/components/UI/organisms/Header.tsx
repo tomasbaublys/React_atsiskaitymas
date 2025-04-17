@@ -1,5 +1,10 @@
-import { Link } from 'react-router';
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router';
 import styled from 'styled-components';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+import UsersContext from '../../../contexts/UsersContext';
+import { UsersContextTypes } from '../../../types';
 
 const HeaderWrapper = styled.header`
   background-color: #121212;
@@ -7,7 +12,6 @@ const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #f5c518;
 `;
 
 const Logo = styled(Link)`
@@ -20,38 +24,58 @@ const Logo = styled(Link)`
 const Nav = styled.nav`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 `;
 
 const NavLink = styled(Link)`
   color: white;
   text-decoration: none;
   font-size: 0.95rem;
+
   &:hover {
     text-decoration: underline;
   }
 `;
 
-const Avatar = styled.img`
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+const UserName = styled.span`
+  color: #f5c518;
+  font-size: 0.9rem;
+`;
+
+const LogoutButton = styled.button`
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+    color: #f5c518;
+  }
 `;
 
 const Header = () => {
-  const isLoggedIn = false;
+  const { loggedInUser, setLoggedInUser } = useContext(UsersContext) as UsersContextTypes;
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('loggedInUser');
+    setLoggedInUser(null);
+    navigate('/');
+  };
 
   return (
     <HeaderWrapper>
       <Logo to="/">BOOKS</Logo>
       <Nav>
         <NavLink to="/">Home</NavLink>
-        {isLoggedIn && <NavLink to="/add">Add</NavLink>}
-        {isLoggedIn ? (
+        {loggedInUser && <NavLink to="/add">Add</NavLink>}
+        {loggedInUser ? (
           <>
-            <Avatar src="/default-avatar.png" alt="user" />
-            <NavLink to="/user/123">Tomas</NavLink>
-            <NavLink to="/logout">Logout</NavLink>
+            <AccountCircleIcon style={{ color: '#f5c518', fontSize: '28px' }} />
+            <UserName>{loggedInUser.username}</UserName>
+            <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
           </>
         ) : (
           <>
