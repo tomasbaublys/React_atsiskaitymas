@@ -5,6 +5,7 @@ export type User = {
   password: string;
   passwordText: string;
   profilePicture?: string;
+  dob: string;
   role: 'customer' | 'admin';
 };
 export type ChildrenProp = {

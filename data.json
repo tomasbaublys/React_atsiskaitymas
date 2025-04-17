@@ -17,6 +17,16 @@
       "passwordText": "Tomas123!",
       "dob": "12/08/1979",
       "role": "customer"
+    },
+    {
+      "id": "6418decf-c2fb-4c94-8722-07f29d48e833",
+      "username": "Tomas2",
+      "email": "tomas2@gmail.com",
+      "password": "$2b$10$mDYus/CkYHVSySHsK8F.YeUi6YBj1p4t1bnQFZuCX1XWeOcnW3WmS",
+      "passwordText": "Tomas123!",
+      "profilePicture": "/default-avatar.png",
+      "role": "customer",
+      "dob": "2002-01-01"
     }
   ],
   "books": [
