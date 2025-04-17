@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "0591fe2e-57e4-4bba-a87e-cb59cd58c944",
+      "username": "TomasA",
+      "email": "john.doe@example.com",
+      "password": "$2b$10$62hqUhcSWTa2X4N/mZ6rGOzQcDrJ3SzFbYpAL0pX4Ie6QsrSAhZXy",
+      "passwordText": "Tomas123!",
+      "joined": "2024-04-16T08:08:39.439Z",
+      "dob": "4/3/1996"
+    },
+    {
+      "id": "3780ec44-c37b-406f-b43b-a568def29e3c",
+      "username": "Tomas",
+      "email": "tomas@forumcinemashe.lt",
+      "password": "$2b$10$yp3YhDYa2TUMEj/eJTdgq.YyaLsU9WGpooYMjvGvK.XQ5xg1ngQtm",
+      "passwordText": "Tomas123!",
+      "joined": "2025-04-16T08:08:39.439Z",
+      "dob": "12/08/1979"
+    }
+  ]
+}
