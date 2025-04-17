@@ -1,57 +1,67 @@
-import { NavLink } from "react-router";
-import styled from "styled-components";
+import { Link } from 'react-router';
+import styled from 'styled-components';
 
-const StyledHeader = styled.header`
-  height: 100px;
-  background-color: #e4cfcf21;
-
+const HeaderWrapper = styled.header`
+  background-color: #121212;
+  padding: 0.75rem 2rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  color: #f5c518;
+`;
 
-  > nav{
+const Logo = styled(Link)`
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #f5c518;
+`;
 
-    > ul{
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
 
-      > li{
-        list-style-type: none;
-
-        > a{
-          color: white;
-          text-decoration: none;
-
-          &.active{
-            color: #9f9898;
-          }
-        }
-      }
-    }
+const NavLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  &:hover {
+    text-decoration: underline;
   }
 `;
 
-const Header = () => {
+const Avatar = styled.img`
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+`;
 
-    return (
-        <StyledHeader>
-            <span>IMAGE</span>
-            <nav>
-                <ul>
-                    <li><NavLink to=''>home</NavLink></li>
-                    {
-                        <>
-                            <li><NavLink to='login'>login</NavLink></li>
-                            <li><NavLink to='register'>register</NavLink></li>
-                            <li><NavLink to='add'>add</NavLink></li>
-                            <li><NavLink to='user/:id'>user</NavLink></li>
-                        </>
-                    }
-                </ul>
-            </nav>
-        </StyledHeader>
-    );
-}
+const Header = () => {
+  const isLoggedIn = false;
+
+  return (
+    <HeaderWrapper>
+      <Logo to="/">BOOKS</Logo>
+      <Nav>
+        <NavLink to="/">Home</NavLink>
+        {isLoggedIn && <NavLink to="/add">Add</NavLink>}
+        {isLoggedIn ? (
+          <>
+            <Avatar src="/default-avatar.png" alt="user" />
+            <NavLink to="/user/123">Tomas</NavLink>
+            <NavLink to="/logout">Logout</NavLink>
+          </>
+        ) : (
+          <>
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/register">Register</NavLink>
+          </>
+        )}
+      </Nav>
+    </HeaderWrapper>
+  );
+};
 
 export default Header;
