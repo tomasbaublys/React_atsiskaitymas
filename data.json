@@ -1,22 +1,40 @@
 {
   "users": [
     {
-      "id": "0591fe2e-57e4-4bba-a87e-cb59cd58c944",
-      "username": "TomasA",
-      "email": "john.doe@example.com",
+      "id": "3ghj78",
+      "username": "Tomas1",
+      "email": "tomas1@gmail.com",
       "password": "$2b$10$62hqUhcSWTa2X4N/mZ6rGOzQcDrJ3SzFbYpAL0pX4Ie6QsrSAhZXy",
       "passwordText": "Tomas123!",
-      "joined": "2024-04-16T08:08:39.439Z",
-      "dob": "4/3/1996"
+      "dob": "4/3/1996",
+      "role": "admin"
     },
     {
-      "id": "3780ec44-c37b-406f-b43b-a568def29e3c",
+      "id": "4klm90",
       "username": "Tomas",
-      "email": "tomas@forumcinemashe.lt",
+      "email": "tomas@gmail.com",
       "password": "$2b$10$yp3YhDYa2TUMEj/eJTdgq.YyaLsU9WGpooYMjvGvK.XQ5xg1ngQtm",
       "passwordText": "Tomas123!",
-      "joined": "2025-04-16T08:08:39.439Z",
-      "dob": "12/08/1979"
+      "dob": "12/08/1979",
+      "role": "customer"
+    }
+  ],
+  "books": [
+    {
+      "id": "tap1",
+      "title": "Vilko valanda",
+      "description": "Pirmajame lietuviškame stimpanko žanro romane jūsų laukia pašėlę nuotykiai, kraupios žmogžudystės, sudėtingos intrigos, kvapą gniaužiančios kautynės ant žemės, po žeme ir danguje, alchemikų paslaptys ir istorinės asmenybės visai kitu, nei kad buvo realiame gyvenime, amplua.",
+      "image": "https://thumb.knygos-static.lt/vnLCLDaKjq3D90a_rZ1S490cS30=/fit-in/0x800/filters:cwatermark(static/wm.png,500,75,30)/images/books/14972714/1741094812_vilko-valanda_1.jpg",
+      "createdAt": "2025-04-17T12:03:00Z",
+      "userId": "4klm90"
+    },
+    {
+      "id": "sar1",
+      "title": "Ugnies paveldėtoja. Serijos „Stiklo sostas“ trečia knyga",
+      "description": "Selena išgyveno mirtinus konkursus ir gniuždantį širdies skausmą. Už visa tai sumokėjo milžinišką kainą. Dabar ji turi keliauti į naują žemę, kad susidurtų su savo tamsiausia tiesa...",
+      "image": "https://thumb.knygos-static.lt/UdEWu6C_Mb44Eb0VV8nCWNIP6Lw=/fit-in/0x800/filters:cwatermark(static/wm.png,500,75,30)/images/books/14821140/1727088188_Ugnie-paveldetoja.jpg",
+      "createdAt": "2025-04-16T12:03:00Z",
+      "userId": "3ghj78"
     }
   ]
 }
