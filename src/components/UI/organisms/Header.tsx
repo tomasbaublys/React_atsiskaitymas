@@ -31,9 +31,10 @@ const NavLink = styled(Link)`
   color: white;
   text-decoration: none;
   font-size: 0.95rem;
+  transition: color 0.2s ease;
 
   &:hover {
-    text-decoration: underline;
+    color: #f5c518;
   }
 `;
 
@@ -48,9 +49,9 @@ const LogoutButton = styled.button`
   color: #ccc;
   font-size: 0.9rem;
   cursor: pointer;
+  transition: color 0.2s ease;
 
   &:hover {
-    text-decoration: underline;
     color: #f5c518;
   }
 `;
@@ -73,8 +74,13 @@ const Header = () => {
         {loggedInUser && <NavLink to="/add">Add</NavLink>}
         {loggedInUser ? (
           <>
-            <AccountCircleIcon style={{ color: '#f5c518', fontSize: '28px' }} />
-            <UserName>{loggedInUser.username}</UserName>
+            <NavLink
+              to={`/user/${loggedInUser.id}`}
+              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+            >
+              <AccountCircleIcon style={{ color: '#f5c518', fontSize: '28px' }} />
+              <UserName>{loggedInUser.username}</UserName>
+            </NavLink>
             <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
           </>
         ) : (
