@@ -130,7 +130,7 @@ const BookCard = ({ book, author, loggedInUser }: Props) => {
         )}
         {loggedInUser && (
           <button className="save" onClick={() => saveOneBook(book.id)}>
-            {book.saved ? 'Unsave' : 'Save'}
+            {loggedInUser?.savedBookIds?.includes(book.id) ? 'Unsave' : 'Save'}
           </button>
         )}
       </Actions>

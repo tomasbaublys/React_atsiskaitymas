@@ -1,10 +1,10 @@
-import { useContext } from 'react';
-import styled from 'styled-components';
-
-import BooksContext from '../../contexts/BooksContext';
-import UsersContext from '../../contexts/UsersContext';
-import { BooksContextTypes, UsersContextTypes } from '../../types';
-import BookCard from '../UI/molecules/BookCard';
+import { useContext } from "react";
+import styled from "styled-components";
+import BooksContext from "../../contexts/BooksContext";
+import UsersContext from "../../contexts/UsersContext";
+import { BooksContextTypes, UsersContextTypes } from "../../types";
+import BookCard from "../UI/molecules/BookCard";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Wrapper = styled.main`
   max-width: 1000px;
@@ -31,17 +31,27 @@ const BookList = styled.div`
   gap: 1.5rem;
 `;
 
+const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+`;
+
 const Home = () => {
   const { books } = useContext(BooksContext) as BooksContextTypes;
-  const { users, loggedInUser } = useContext(UsersContext) as UsersContextTypes;
+  const { loggedInUser, getUserById } = useContext(UsersContext) as UsersContextTypes;
 
-  const getUserById = (userId: string) => users.find((user) => user.id === userId);
+  const isLoading = books.length === 0;
 
   return (
     <Wrapper>
       <Title>All Books</Title>
 
-      {books.length === 0 ? (
+      {isLoading ? (
+        <LoaderWrapper>
+          <CircularProgress sx={{ color: "#f5c518" }} />
+        </LoaderWrapper>
+      ) : books.length === 0 ? (
         <Message>No books found.</Message>
       ) : (
         <BookList>
@@ -58,6 +68,5 @@ const Home = () => {
     </Wrapper>
   );
 };
-
 
 export default Home;

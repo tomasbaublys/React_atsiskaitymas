@@ -7,6 +7,7 @@ export type User = {
   profilePicture?: string;
   dob: string;
   role: 'customer' | 'admin';
+  savedBookIds?: string[];
 };
 export type ChildrenProp = {
   children: React.ReactElement
@@ -16,11 +17,12 @@ export type UsersReducerActionTypes =
 { type: 'addUser', newUser: User }
 
 export type UsersContextTypes = {
-  loggedInUser: User | null,
-  setLoggedInUser: React.Dispatch<React.SetStateAction<User | null>>,
-  users: User[],
-  dispatch: React.ActionDispatch<[UsersReducerActionTypes]>
-}
+  loggedInUser: User | null;
+  setLoggedInUser: React.Dispatch<React.SetStateAction<User | null>>;
+  users: User[];
+  dispatch: React.ActionDispatch<[UsersReducerActionTypes]>;
+  getUserById: (id: string) => User | undefined;
+};
 export interface LoginValues {
   email: string;
   password: string;

@@ -7,7 +7,10 @@
       "password": "$2b$10$62hqUhcSWTa2X4N/mZ6rGOzQcDrJ3SzFbYpAL0pX4Ie6QsrSAhZXy",
       "passwordText": "Tomas123!",
       "dob": "4/3/1996",
-      "role": "admin"
+      "role": "admin",
+      "savedBookIds": [
+        "8da96ff3-0ec5-438a-a6c7-3e436137e434"
+      ]
     },
     {
       "id": "4klm90",
@@ -26,7 +29,8 @@
       "passwordText": "Tomas123!",
       "profilePicture": "/default-avatar.png",
       "role": "customer",
-      "dob": "2002-01-01"
+      "dob": "2002-01-01",
+      "savedBookIds": []
     }
   ],
   "books": [
@@ -64,6 +68,15 @@
       "image": "https://thumb.knygos-static.lt/WCpyaDHVisWLG9K8L4Zbtj3uyJo=/fit-in/0x800/filters:cwatermark(static/wm.png,500,75,30)/images/books/15075479/1743746848_9786094276750_Liu_Cixin_Trij%C5%B3_k%C5%ABn%C5%B3_problema_2025.jpg",
       "userId": "3ghj78",
       "createdAt": "2025-04-18T05:43:06.962Z",
+      "saved": false
+    },
+    {
+      "id": "8b6485f9-f198-4c4c-bd80-66c923402aca",
+      "title": "Testas",
+      "description": "Testas testas",
+      "image": "https://placehold.co/600x850?text=No+Image",
+      "userId": "6418decf-c2fb-4c94-8722-07f29d48e833",
+      "createdAt": "2025-04-18T08:25:20.453Z",
       "saved": false
     }
   ]

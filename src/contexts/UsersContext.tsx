@@ -1,27 +1,27 @@
 import { createContext, useState, useReducer, useEffect } from "react";
-
 import { User, ChildrenProp, UsersContextTypes, UsersReducerActionTypes } from "../types";
 
 const reducer = (state: User[], action: UsersReducerActionTypes): User[] => {
-    switch (action.type) {
-      case "setUsers":
-        return action.data;
-      case "addUser":
-        fetch(`http://localhost:8080/users`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(action.newUser),
-        });
-        return [...state, action.newUser];
-    }
-  };
+  switch (action.type) {
+    case "setUsers":
+      return action.data;
+    case "addUser":
+      fetch(`http://localhost:8080/users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(action.newUser),
+      });
+      return [...state, action.newUser];
+    default:
+      return state;
+  }
+};
 
 const UsersContext = createContext<UsersContextTypes | undefined>(undefined);
 
 const UsersProvider = ({ children }: ChildrenProp) => {
-
   const [users, dispatch] = useReducer(reducer, []);
   const [loggedInUser, setLoggedInUser] = useState<User | null>(() => {
     try {
@@ -32,13 +32,20 @@ const UsersProvider = ({ children }: ChildrenProp) => {
     }
   });
 
+  // Utility function to find user by ID
+  const getUserById = (id: string): User | undefined => {
+    return users.find((user) => user.id === id);
+  };
+
   useEffect(() => {
     fetch(`http://localhost:8080/users`)
-      .then(res => res.json())
-      .then(data => dispatch({
-        type: 'setUsers',
-        data: data
-      }))
+      .then((res) => res.json())
+      .then((data) =>
+        dispatch({
+          type: "setUsers",
+          data: data,
+        })
+      );
   }, []);
 
   return (
@@ -47,7 +54,8 @@ const UsersProvider = ({ children }: ChildrenProp) => {
         loggedInUser,
         setLoggedInUser,
         users,
-        dispatch
+        dispatch,
+        getUserById, // ✅ included here
       }}
     >
       {children}

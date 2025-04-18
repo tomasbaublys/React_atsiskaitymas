@@ -1,9 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router";
 import UsersContext from "../../contexts/UsersContext";
 import BooksContext from "../../contexts/BooksContext";
 import { UsersContextTypes, BooksContextTypes, Book } from "../../types";
 import BookCard from "../UI/molecules/BookCard";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const Container = styled.div`
   max-width: 1100px;
@@ -26,47 +29,43 @@ const Message = styled.div`
   font-size: 14px;
   color: #aaa;
   margin-top: 20px;
-`;
-
-const Loader = styled.img`
-  width: 60px;
-  margin: 60px auto;
-  display: block;
+  text-align: center;
 `;
 
 const User = () => {
-  const { loggedInUser } = useContext(UsersContext) as UsersContextTypes;
+  const { loggedInUser, getUserById } = useContext(UsersContext) as UsersContextTypes;
   const { books } = useContext(BooksContext) as BooksContextTypes;
-  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 800);
-    return () => clearTimeout(timer);
-  }, []);
+    if (!loggedInUser) {
+      navigate("/login");
+    }
+  }, [loggedInUser, navigate]);
 
-  if (!loggedInUser) {
-    return (
-      <Container>
-        <Message>You must be logged in to view this page.</Message>
-      </Container>
-    );
-  }
+  if (!loggedInUser) return null;
 
-  const savedBooks = books.filter(
-    (book: Book) => book.userId === loggedInUser.id && book.saved
-  );
+  const savedBookIds = loggedInUser.savedBookIds || [];
+  const savedBooks = books.filter((book: Book) => savedBookIds.includes(book.id));
 
   return (
     <Container>
       <Title>Your Saved Books</Title>
-      {loading ? (
-        <Loader src="/loading.gif" alt="Loading..." />
+      {books.length === 0 ? (
+        <Box display="flex" justifyContent="center" mt={6}>
+          <CircularProgress sx={{ color: "#f5c518" }} />
+        </Box>
       ) : savedBooks.length === 0 ? (
         <Message>You have no saved books.</Message>
       ) : (
         <Grid>
           {savedBooks.map((book) => (
-            <BookCard key={book.id} book={book} loggedInUser={loggedInUser} />
+            <BookCard
+              key={book.id}
+              book={book}
+              author={getUserById(book.userId)}
+              loggedInUser={loggedInUser}
+            />
           ))}
         </Grid>
       )}

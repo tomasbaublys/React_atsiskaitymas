@@ -1,0 +1,72 @@
+{
+    "users": [
+      {
+        "id": "3ghj78",
+        "username": "Tomas1",
+        "email": "tomas1@gmail.com",
+        "password": "$2b$10$62hqUhcSWTa2X4N/mZ6rGOzQcDrJ3SzFbYpAL0pX4Ie6QsrSAhZXy",
+        "passwordText": "Tomas123!",
+        "dob": "4/3/1996",
+        "role": "admin",
+        "savedBookIds": []
+      },
+      {
+        "id": "4klm90",
+        "username": "Tomas",
+        "email": "tomas@gmail.com",
+        "password": "$2b$10$yp3YhDYa2TUMEj/eJTdgq.YyaLsU9WGpooYMjvGvK.XQ5xg1ngQtm",
+        "passwordText": "Tomas123!",
+        "dob": "12/08/1979",
+        "role": "customer"
+      },
+      {
+        "id": "6418decf-c2fb-4c94-8722-07f29d48e833",
+        "username": "Tomas2",
+        "email": "tomas2@gmail.com",
+        "password": "$2b$10$mDYus/CkYHVSySHsK8F.YeUi6YBj1p4t1bnQFZuCX1XWeOcnW3WmS",
+        "passwordText": "Tomas123!",
+        "profilePicture": "/default-avatar.png",
+        "role": "customer",
+        "dob": "2002-01-01",
+        "savedBookIds": []
+      }
+    ],
+    "books": [
+      {
+        "id": "tap1",
+        "title": "Vilko valanda",
+        "description": "Pirmajame lietuviškame stimpanko žanro romane jūsų laukia pašėlę nuotykiai, kraupios žmogžudystės, sudėtingos intrigos, kvapą gniaužiančios kautynės ant žemės, po žeme ir danguje, alchemikų paslaptys ir istorinės asmenybės visai kitu, nei kad buvo realiame gyvenime, amplua.",
+        "image": "https://thumb.knygos-static.lt/vnLCLDaKjq3D90a_rZ1S490cS30=/fit-in/0x800/filters:cwatermark(static/wm.png,500,75,30)/images/books/14972714/1741094812_vilko-valanda_1.jpg",
+        "createdAt": "2025-04-17T12:03:00Z",
+        "userId": "4klm90",
+        "saved": false
+      },
+      {
+        "id": "sar1",
+        "title": "Ugnies paveldėtoja. Serijos „Stiklo sostas“ trečia knyga",
+        "description": "Selena išgyveno mirtinus konkursus ir gniuždantį širdies skausmą. Už visa tai sumokėjo milžinišką kainą. Dabar ji turi keliauti į naują žemę, kad susidurtų su savo tamsiausia tiesa...",
+        "image": "https://thumb.knygos-static.lt/UdEWu6C_Mb44Eb0VV8nCWNIP6Lw=/fit-in/0x800/filters:cwatermark(static/wm.png,500,75,30)/images/books/14821140/1727088188_Ugnie-paveldetoja.jpg",
+        "createdAt": "2025-04-16T12:03:00Z",
+        "userId": "3ghj78",
+        "saved": true
+      },
+      {
+        "id": "8da96ff3-0ec5-438a-a6c7-3e436137e434",
+        "title": "Beširdis medžiotojas",
+        "description": "Vieną vakarą, miesto gatvėms nusidažius krauju, Runės gyvenimas negrįžtamai pasikeis. Sukrečianti revoliucija visas raganas iš galingų valdovių pavertė atstumtosiomis.",
+        "image": "https://thumb.knygos-static.lt/S6fxWdKj34bb7Q4zTJ1d64VbBvg=/fit-in/0x800/filters:cwatermark(static/wm.png,500,75,30)/images/books/14960672/1738576469_Kristen_Ciccarelli_-_Besirdis_medziotojas_VIRSv1.jpg",
+        "userId": "3ghj78",
+        "createdAt": "2025-04-18T05:33:37.918Z",
+        "saved": true
+      },
+      {
+        "id": "09a83673-128c-4f28-adac-2e668ae9cb51",
+        "title": "Trijų kūnų problema (minkšti viršeliai)",
+        "description": "Kinijoje vyksta Kultūrinė revoliucija. Tuo metu slaptas karinis dalinys, ieškodamas nežemiškų civilizacijų, siunčia signalus į kosmosą. Tolimos mirštančios planetos gyventojai pagauna signalą ir ruošiasi atakuoti Žemę.",
+        "image": "https://thumb.knygos-static.lt/WCpyaDHVisWLG9K8L4Zbtj3uyJo=/fit-in/0x800/filters:cwatermark(static/wm.png,500,75,30)/images/books/15075479/1743746848_9786094276750_Liu_Cixin_Trij%C5%B3_k%C5%ABn%C5%B3_problema_2025.jpg",
+        "userId": "3ghj78",
+        "createdAt": "2025-04-18T05:43:06.962Z",
+        "saved": false
+      }
+    ]
+  }
