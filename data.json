@@ -13,34 +13,18 @@
       ]
     },
     {
-      "id": "4klm90",
-      "username": "Tomas",
-      "email": "tomas@gmail.com",
-      "password": "$2b$10$yp3YhDYa2TUMEj/eJTdgq.YyaLsU9WGpooYMjvGvK.XQ5xg1ngQtm",
-      "passwordText": "Tomas123!",
-      "dob": "12/08/1979",
-      "role": "customer"
-    },
-    {
-      "id": "6418decf-c2fb-4c94-8722-07f29d48e833",
+      "id": "c78264b7-7523-4216-9c70-6e4e6fa343d8",
       "username": "Tomas2",
       "email": "tomas2@gmail.com",
-      "password": "$2b$10$mDYus/CkYHVSySHsK8F.YeUi6YBj1p4t1bnQFZuCX1XWeOcnW3WmS",
+      "password": "$2b$10$n8iVnOvwZGlL4mJdZBHwDO0sjcPvdGKZyR.jUSLkVW7zWS2G8bTia",
       "passwordText": "Tomas123!",
       "profilePicture": "/default-avatar.png",
       "role": "customer",
-      "dob": "2002-01-01",
-      "savedBookIds": []
-    },
-    {
-      "id": "3bf7ad7e-d461-4b1f-8499-db275a8c5c93",
-      "username": "Rimas",
-      "email": "r@gmail.com",
-      "password": "$2b$10$XRUXWh7DcndKFAdq1ZbU4ePBlOIV8TgGpCU5GXuyX0i95y1azXy3G",
-      "passwordText": "Tomas123!",
-      "profilePicture": "/default-avatar.png",
-      "role": "customer",
-      "dob": "2025-04-02"
+      "dob": "2025-04-09",
+      "savedBookIds": [
+        "09a83673-128c-4f28-adac-2e668ae9cb51",
+        "8da96ff3-0ec5-438a-a6c7-3e436137e434"
+      ]
     }
   ],
   "books": [

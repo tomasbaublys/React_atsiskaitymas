@@ -45,7 +45,7 @@ const Label = styled.label`
 const StyledField = styled(Field)`
   width: 100%;
   padding: 6px;
-  font-size: 12px;
+  font-size: 11px;
   background-color: #2a2a2a;
   color: white;
   border: 1px solid #555;
@@ -61,13 +61,12 @@ const StyledField = styled(Field)`
 const StyledTextarea = styled.textarea`
   width: 100%;
   padding: 6px;
-  font-size: 12px;
+  font-size: 10px;
   background-color: #2a2a2a;
   color: white;
   border: 1px solid #555;
   border-radius: 3px;
   margin-bottom: 8px;
-  
 
   &:focus {
     outline: none;
@@ -102,6 +101,11 @@ const AddBook = () => {
   const navigate = useNavigate();
   const { loggedInUser } = useContext(UsersContext) as UsersContextTypes;
   const { addNewBook } = useContext(BooksContext) as BooksContextTypes;
+
+  if (!loggedInUser) {
+    navigate("/login");
+    return null;
+  }
 
   const initialValues = {
     title: '',
@@ -151,7 +155,11 @@ const AddBook = () => {
           <Form>
             <div>
               <Label htmlFor="title">Title</Label>
-              <StyledField name="title" type="text" />
+              <StyledField
+                name="title"
+                type="text"
+                placeholder="Enter book title"
+              />
               <ErrorMessage name="title" component={ErrorText} />
             </div>
 
@@ -159,7 +167,11 @@ const AddBook = () => {
               <Label htmlFor="description">Description</Label>
               <Field name="description">
                 {({ field }: { field: FieldInputProps<string> }) => (
-                  <StyledTextarea {...field} rows={4} />
+                  <StyledTextarea
+                    {...field}
+                    rows={4}
+                    placeholder="Enter description..."
+                  />
                 )}
               </Field>
               <ErrorMessage name="description" component={ErrorText} />
@@ -167,7 +179,11 @@ const AddBook = () => {
 
             <div>
               <Label htmlFor="image">Image URL (optional)</Label>
-              <StyledField name="image" type="text" />
+              <StyledField
+                name="image"
+                type="text"
+                placeholder="https://example.com/image.jpg"
+              />
               <ErrorMessage name="image" component={ErrorText} />
             </div>
 

@@ -143,7 +143,7 @@ const Login = () => {
       }
 
       setOpen(true);
-      setTimeout(() => navigate('/'), 2000);
+      setTimeout(() => navigate('/'), 1500);
     } else {
       setError('Incorrect email or password.');
     }
@@ -164,7 +164,7 @@ const Login = () => {
             <Form>
               <div>
                 <Label htmlFor="email">Email</Label>
-                <StyledField type="email" name="email" />
+                <StyledField type="email" name="email" placeholder="Enter your email" />
                 <ErrorMessage name="email" component={ErrorText} />
               </div>
 
@@ -172,7 +172,7 @@ const Login = () => {
                 <PasswordRow>
                   <Label htmlFor="password">Password</Label>
                 </PasswordRow>
-                <StyledField type="password" name="password" />
+                <StyledField type="password" name="password" placeholder="Enter your password" />
                 <ErrorMessage name="password" component={ErrorText} />
               </div>
 
@@ -191,7 +191,7 @@ const Login = () => {
         </Formik>
       </Card>
 
-      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={1500} onClose={handleClose}>
         <MuiAlert elevation={6} variant="filled" onClose={handleClose} severity="success">
           Signed in successfully!
         </MuiAlert>

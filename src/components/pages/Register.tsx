@@ -186,7 +186,7 @@ const Register = () => {
     setLoggedInUser(newUser);
     localStorage.setItem('loggedInUser', JSON.stringify(newUser));
     setOpen(true);
-    setTimeout(() => navigate('/'), 3000);
+    setTimeout(() => navigate('/'), 2000);
   };
 
   return (
@@ -202,13 +202,13 @@ const Register = () => {
             <Form>
               <FieldWrapper>
                 <Label htmlFor="username">Your name</Label>
-                <StyledField name="username" type="text" />
+                <StyledField name="username" type="text" placeholder="e.g. JohnDoe" />
                 <ErrorMessage name="username" component={ErrorText} />
               </FieldWrapper>
 
               <FieldWrapper>
                 <Label htmlFor="email">Email</Label>
-                <StyledField name="email" type="email" />
+                <StyledField name="email" type="email" placeholder="you@example.com" />
                 <ErrorMessage name="email" component={ErrorText} />
               </FieldWrapper>
 
@@ -220,20 +220,20 @@ const Register = () => {
 
               <FieldWrapper>
                 <Label htmlFor="profilePicture">Profile Picture URL (optional)</Label>
-                <StyledField name="profilePicture" type="url" placeholder="https://..." />
+                <StyledField name="profilePicture" type="url" placeholder="https://example.com/avatar.jpg" />
                 <ErrorMessage name="profilePicture" component={ErrorText} />
               </FieldWrapper>
 
               <FieldWrapper>
                 <Label htmlFor="password">Password</Label>
-                <StyledField name="password" type="password" />
+                <StyledField name="password" type="password" placeholder="Create a strong password" />
                 <ErrorMessage name="password" component={ErrorText} />
                 <InfoText>Passwords must be 8+ characters and strong.</InfoText>
               </FieldWrapper>
 
               <FieldWrapper>
                 <Label htmlFor="passwordRepeat">Re-enter password</Label>
-                <StyledField name="passwordRepeat" type="password" />
+                <StyledField name="passwordRepeat" type="password" placeholder="Repeat your password" />
                 <ErrorMessage name="passwordRepeat" component={ErrorText} />
               </FieldWrapper>
 
@@ -249,7 +249,7 @@ const Register = () => {
         </Formik>
       </Card>
 
-      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
         <MuiAlert elevation={6} variant="filled" onClose={handleClose} severity="success">
           Account created successfully!
         </MuiAlert>
