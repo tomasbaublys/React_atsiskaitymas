@@ -47,6 +47,24 @@
       "createdAt": "2025-04-16T12:03:00Z",
       "userId": "3ghj78",
       "saved": false
+    },
+    {
+      "id": "8da96ff3-0ec5-438a-a6c7-3e436137e434",
+      "title": "Beširdis medžiotojas",
+      "description": "Vieną vakarą, miesto gatvėms nusidažius krauju, Runės gyvenimas negrįžtamai pasikeis. Sukrečianti revoliucija visas raganas iš galingų valdovių pavertė atstumtosiomis.",
+      "image": "https://thumb.knygos-static.lt/S6fxWdKj34bb7Q4zTJ1d64VbBvg=/fit-in/0x800/filters:cwatermark(static/wm.png,500,75,30)/images/books/14960672/1738576469_Kristen_Ciccarelli_-_Besirdis_medziotojas_VIRSv1.jpg",
+      "userId": "3ghj78",
+      "createdAt": "2025-04-18T05:33:37.918Z",
+      "saved": false
+    },
+    {
+      "id": "09a83673-128c-4f28-adac-2e668ae9cb51",
+      "title": "Trijų kūnų problema (minkšti viršeliai)",
+      "description": "Kinijoje vyksta Kultūrinė revoliucija. Tuo metu slaptas karinis dalinys, ieškodamas nežemiškų civilizacijų, siunčia signalus į kosmosą. Tolimos mirštančios planetos gyventojai pagauna signalą ir ruošiasi atakuoti Žemę.",
+      "image": "https://thumb.knygos-static.lt/WCpyaDHVisWLG9K8L4Zbtj3uyJo=/fit-in/0x800/filters:cwatermark(static/wm.png,500,75,30)/images/books/15075479/1743746848_9786094276750_Liu_Cixin_Trij%C5%B3_k%C5%ABn%C5%B3_problema_2025.jpg",
+      "userId": "3ghj78",
+      "createdAt": "2025-04-18T05:43:06.962Z",
+      "saved": false
     }
   ]
 }

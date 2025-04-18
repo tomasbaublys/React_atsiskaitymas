@@ -47,7 +47,7 @@ const UsersProvider = ({ children }: ChildrenProp) => {
         loggedInUser,
         setLoggedInUser,
         users,
-        dispatch,
+        dispatch
       }}
     >
       {children}
