@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
-import { useContext } from 'react';
+import { useContext, useState, SyntheticEvent } from 'react';
 import { useNavigate, Link } from 'react-router';
 import { v4 as generateID } from 'uuid';
 import bcrypt from 'bcryptjs';
@@ -8,6 +8,9 @@ import styled from 'styled-components';
 
 import UsersContext from '../../contexts/UsersContext';
 import { UsersContextTypes, User } from '../../types';
+
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 const Page = styled.div`
   display: flex;
@@ -118,6 +121,13 @@ const Register = () => {
   const navigate = useNavigate();
   const { users, dispatch, setLoggedInUser } = useContext(UsersContext) as UsersContextTypes;
 
+  const [open, setOpen] = useState(false);
+
+  const handleClose = (_event: SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') return;
+    setOpen(false);
+  };
+
   const initialValues: InitValues = {
     username: '',
     email: '',
@@ -175,7 +185,8 @@ const Register = () => {
     dispatch({ type: 'addUser', newUser });
     setLoggedInUser(newUser);
     localStorage.setItem('loggedInUser', JSON.stringify(newUser));
-    navigate('/');
+    setOpen(true);
+    setTimeout(() => navigate('/'), 3000);
   };
 
   return (
@@ -191,7 +202,7 @@ const Register = () => {
             <Form>
               <FieldWrapper>
                 <Label htmlFor="username">Your name</Label>
-                <StyledField name="username" type="text"/>
+                <StyledField name="username" type="text" />
                 <ErrorMessage name="username" component={ErrorText} />
               </FieldWrapper>
 
@@ -237,6 +248,12 @@ const Register = () => {
           )}
         </Formik>
       </Card>
+
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+        <MuiAlert elevation={6} variant="filled" onClose={handleClose} severity="success">
+          Account created successfully!
+        </MuiAlert>
+      </Snackbar>
     </Page>
   );
 };

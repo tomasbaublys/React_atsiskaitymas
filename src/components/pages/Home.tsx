@@ -7,10 +7,10 @@ import BookCard from "../UI/molecules/BookCard";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const Wrapper = styled.main`
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  text-align: center;
+  /* text-align: center; */
 `;
 
 const Title = styled.h2`
@@ -18,6 +18,7 @@ const Title = styled.h2`
   font-weight: 500;
   margin-bottom: 1rem;
   color: white;
+  text-align: center;
 `;
 
 const Message = styled.p`
@@ -27,8 +28,8 @@ const Message = styled.p`
 
 const BookList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 `;
 
 const LoaderWrapper = styled.div`

@@ -68,7 +68,7 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
-      <Logo to="/">BOOKS</Logo>
+      <Logo to="/">I-Read</Logo>
       <Nav>
         <NavLink to="/">Home</NavLink>
         {loggedInUser && <NavLink to="/add">Add</NavLink>}

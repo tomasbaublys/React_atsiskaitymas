@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
-import { useContext, useState } from 'react';
+import { useContext, useState, SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router';
 import bcrypt from 'bcryptjs';
 import * as Yup from 'yup';
@@ -8,13 +8,15 @@ import styled from 'styled-components';
 import UsersContext from '../../contexts/UsersContext';
 import { UsersContextTypes, LoginValues } from '../../types';
 
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
 const Page = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #181818;
   color: white;
-  min-height: 100vh;
   padding: 3rem 1rem;
 `;
 
@@ -108,6 +110,7 @@ const PasswordRow = styled.div`
 const Login = () => {
   const { users, setLoggedInUser } = useContext(UsersContext) as UsersContextTypes;
   const [error, setError] = useState('');
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
   const initialValues: LoginValues = {
@@ -120,6 +123,11 @@ const Login = () => {
     email: Yup.string().email('Please enter a valid email').required('Email is required'),
     password: Yup.string().required('Password is required'),
   });
+
+  const handleClose = (_event: SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') return;
+    setOpen(false);
+  };
 
   const handleSubmit = (values: LoginValues, { setSubmitting }: FormikHelpers<LoginValues>) => {
     const foundUser = users.find(
@@ -134,7 +142,8 @@ const Login = () => {
         localStorage.setItem('loggedInUser', JSON.stringify(foundUser));
       }
 
-      navigate('/');
+      setOpen(true);
+      setTimeout(() => navigate('/'), 2000);
     } else {
       setError('Incorrect email or password.');
     }
@@ -181,6 +190,12 @@ const Login = () => {
           )}
         </Formik>
       </Card>
+
+      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+        <MuiAlert elevation={6} variant="filled" onClose={handleClose} severity="success">
+          Signed in successfully!
+        </MuiAlert>
+      </Snackbar>
     </Page>
   );
 };

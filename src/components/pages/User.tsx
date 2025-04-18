@@ -12,11 +12,18 @@ const Container = styled.div`
   max-width: 1100px;
   margin: 2rem auto;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 `;
 
 const Title = styled.h2`
-  font-size: 24px;
-  margin-bottom: 16px;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: white;
+  text-align: center;
 `;
 
 const Grid = styled.div`
